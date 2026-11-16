@@ -5,19 +5,19 @@
 
   $('#year').textContent = new Date().getFullYear();
 
-  /* Mobile menu */
-  var toggle = $('#navToggle'), nav = $('#nav');
+  /* Menu (same three-line button at every screen size) */
+  var toggle = $('#navToggle'), nav = $('#nav'), backdrop = $('#navBackdrop');
   function setMenu(open) {
     nav.classList.toggle('open', open);
+    backdrop.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open);
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    $('.nav-toggle__label', toggle).textContent = open ? 'Close' : 'Menu';
-    document.body.style.overflow = open ? 'hidden' : '';
+    document.body.style.overflow = open && window.matchMedia('(max-width: 40rem)').matches ? 'hidden' : '';
   }
   toggle.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  backdrop.addEventListener('click', function () { setMenu(false); });
   nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
-  window.matchMedia('(min-width: 64rem)').addEventListener('change', function (e) { if (e.matches) setMenu(false); });
 
   /* Open now (Europe/London) */
   function londonNow() {

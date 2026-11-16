@@ -61,6 +61,7 @@
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-google" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></symbol>
   </defs>
 </svg>
 
@@ -84,14 +85,15 @@
     </nav>
 
     <div class="bar__actions">
+      <a class="bar__call" href="tel:01908611100"><svg class="ico"><use href="#i-phone"/></svg>01908 611100</a>
       <a class="btn btn--sm btn--yellow bar__book" href="#contact" data-service="MOT">Book MOT</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
         <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="nav-toggle__label" aria-hidden="true">Menu</span>
       </button>
     </div>
   </div>
 </header>
+<div class="nav-backdrop" id="navBackdrop"></div>
 
 <main id="main">
 
@@ -397,9 +399,9 @@
               </svg>
               <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="lights" title="Lights &amp; electrics" style="--x:89%;--y:56%">1</button>
               <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="wheels" title="Wheels, steering &amp; brakes" style="--x:75%;--y:77%">2</button>
-              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="view" title="View of the road" style="--x:65%;--y:35%">3</button>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="view" title="View of the road" style="--x:64%;--y:33%">3</button>
               <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="seats" title="Seats &amp; safety" style="--x:42.5%;--y:35%">4</button>
-              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="engine" title="Engine, fuel &amp; exhaust" style="--x:79%;--y:43%">5</button>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="engine" title="Engine, fuel &amp; exhaust" style="--x:76%;--y:40%">5</button>
               <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="body" title="Body &amp; identification" style="--x:16.5%;--y:58%">6</button>
             </div>
           </div>
@@ -495,36 +497,94 @@
   <section class="section section--paper" id="reviews">
     <div class="wrap">
       <header class="section__head reveal">
-        <p class="eyebrow">Kind words</p>
-        <h2>What our customers say</h2>
-        <p>Honest, friendly, good value. Here's what people tell us after a visit.</p>
+        <p class="eyebrow">Google reviews</p>
+        <h2>Rated 4.8 by local drivers</h2>
+        <p>Honest, friendly, good value. These are real reviews from our Google listing.</p>
       </header>
 
+      <div class="gsum reveal">
+        <div class="gsum__score">
+          <span class="gmark" aria-hidden="true"><svg class="ico"><use href="#i-google"/></svg></span>
+          <strong>4.8</strong>
+          <div>
+            <span class="stars" style="--pct:96%" role="img" aria-label="4.8 out of 5 stars">★★★★★</span>
+            <small>Based on 122 Google reviews</small>
+          </div>
+        </div>
+        <ul class="gsum__bars" aria-label="How customers rated us">
+          <li><span>5★</span><i style="--w:89.3%"></i><b>109</b></li>
+          <li><span>4★</span><i style="--w:7.4%"></i><b>9</b></li>
+          <li><span>3★</span><i style="--w:0.8%"></i><b>1</b></li>
+          <li><span>2★</span><i style="--w:0.8%"></i><b>1</b></li>
+          <li><span>1★</span><i style="--w:1.6%"></i><b>2</b></li>
+        </ul>
+        <div class="gsum__cta">
+          <p>Happy with our service? A quick Google review helps other local drivers find a garage they can trust.</p>
+          <div class="row">
+            <a class="btn btn--yellow" href="https://search.google.com/local/writereview?placeid=ChIJ_zq9HbWrd0gRn4osmvMyOsU" target="_blank" rel="noopener">Leave a Google review <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--outline" href="https://www.google.com/maps/place/?q=place_id:ChIJ_zq9HbWrd0gRn4osmvMyOsU" target="_blank" rel="noopener">Read all reviews</a>
+          </div>
+        </div>
+      </div>
+
       <div class="reviews">
-        <figure class="review reveal">
-          <blockquote>“I have used Unique now for over a year to service, MOT and repair my company's fleet of vehicles. They offer an excellent service and are very trustworthy, I have full confidence that the work will be completed to an excellent standard with no unnecessary work being done.”</blockquote>
-          <figcaption><span class="avatar">TV</span>Tony Venables</figcaption>
+        <figure class="review">
+          <div class="review__head">
+            <span class="avatar" aria-hidden="true">R</span>
+            <div><b>Rebecca O.</b><small>Nov 2026</small></div>
+            <span class="gmark" aria-hidden="true"><svg class="ico"><use href="#i-google"/></svg></span>
+          </div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote>I've been using this garage for over 14 years and cannot recommend them enough. For servicing, MOT, tyres and any adhoc repairs, they are fantastic. Customer service, advice and transparency is incredible. Thanks.</blockquote>
         </figure>
-        <figure class="review reveal">
-          <blockquote>“I have used them on several occasions. They are flexible, honest and very experienced mechanics. They carried out the MOT on my car yesterday, they were quick, precise and carried out some minor repairs within the time I had expected. Very good service and price.”</blockquote>
-          <figcaption><span class="avatar">GD</span>Gawein Wierik Durrant</figcaption>
+        <figure class="review">
+          <div class="review__head">
+            <span class="avatar" aria-hidden="true">L</span>
+            <div><b>Lizi M.</b><small>Oct 2026</small></div>
+            <span class="gmark" aria-hidden="true"><svg class="ico"><use href="#i-google"/></svg></span>
+          </div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote>What a gem of a find! Went to my car this morning to find I had a nearly flat tyre with a screw in it, …</blockquote>
+          <a class="review__more" href="https://www.google.com/maps/place/?q=place_id:ChIJ_zq9HbWrd0gRn4osmvMyOsU" target="_blank" rel="noopener">Read more on Google</a>
         </figure>
-        <figure class="review reveal">
-          <blockquote>“I never normally leave feedback, but on this occasion I felt I should. I had my car MOT'ed and the customer service was great, they clearly explained what was required and sorted it quickly and without any hassle to me, plus the costs were good too… It makes a change to find an honest garage where they put the customer first.”</blockquote>
-          <figcaption><span class="avatar">TS</span>Tony Small</figcaption>
+        <figure class="review">
+          <div class="review__head">
+            <span class="avatar" aria-hidden="true">A</span>
+            <div><b>Aimée</b><small>Sep 2026</small></div>
+            <span class="gmark" aria-hidden="true"><svg class="ico"><use href="#i-google"/></svg></span>
+          </div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote>Lovely team! I had a puncture on my way to work with my young son in the car, and they kindly squeezed me in and sorted it quickly. I’m not car savvy at all and usually feel uncomfortable in these situations, but they were so friendly and …</blockquote>
+          <a class="review__more" href="https://www.google.com/maps/place/?q=place_id:ChIJ_zq9HbWrd0gRn4osmvMyOsU" target="_blank" rel="noopener">Read more on Google</a>
         </figure>
-        <figure class="review reveal">
-          <blockquote>“I've had MOT, service and tyres done, great service, friendly and highly recommend this garage. A good honest garage is hard to find nowadays. This is one of them. Thank you.”</blockquote>
-          <figcaption><span class="avatar">MC</span>M Clarke</figcaption>
+        <figure class="review">
+          <div class="review__head">
+            <span class="avatar" aria-hidden="true">D</span>
+            <div><b>Donato R.</b><small>Jul 2026</small></div>
+            <span class="gmark" aria-hidden="true"><svg class="ico"><use href="#i-google"/></svg></span>
+          </div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote>I needed to get my car's air conditioning recharged and they managed to squeeze me in the same day. The guys were all super friendly and very professional. The air conditioning works perfectly now, and just in time for the second heatwave. Would definitely recommend!</blockquote>
         </figure>
-        <figure class="review reveal">
-          <blockquote>“I have used Unique Autocentre on four different occasions including new tyres, service and MOT. All were done professionally with a friendly atmosphere and tea or coffee in their waiting room if you wish. Will be going back. 10/10.”</blockquote>
-          <figcaption><span class="avatar">GH</span>Gary Holman</figcaption>
-        </figure>
-        <figure class="review reveal">
-          <blockquote>“The Unique team are friendly, approachable and honest. Having had my car serviced and MOT'd at the garage I can highly recommend them based on their customer service and value for money.”</blockquote>
-          <figcaption><span class="avatar">SB</span>S Burt</figcaption>
-        </figure>
+      </div>
+
+      <div class="ghi reveal">
+        <p class="ghi__label">More from Google reviewers</p>
+        <ul class="ghi__list">
+          <li>“Excellent service, good prices and polite staff.”</li>
+          <li>“Solved my concerns asap for a good price.”</li>
+          <li>“They charge a fair price for a job well done.”</li>
+        </ul>
+        <p class="ghi__label">Mentioned most in reviews</p>
+        <ul class="topics" aria-label="Topics mentioned in Google reviews">
+          <li>MOT <b>11</b></li>
+          <li>Honest staff <b>6</b></li>
+          <li>Polite staff <b>6</b></li>
+          <li>Fair pricing <b>5</b></li>
+          <li>Quick repair <b>3</b></li>
+          <li>Honest advice <b>3</b></li>
+        </ul>
+        <p class="reviews__note">Ratings and reviews as shown on our Google listing on 16 Nov 2026. Names shortened.</p>
       </div>
     </div>
   </section>
@@ -724,5 +784,6 @@
 </div>
 
 <script src="script.js"></script>
+<script src="demo.js"></script>
 </body>
 </html>
