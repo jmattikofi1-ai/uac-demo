@@ -85,9 +85,9 @@
 
     <div class="bar__actions">
       <a class="btn btn--sm btn--yellow bar__book" href="#contact" data-service="MOT">Book MOT</a>
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
-        <svg class="ico ico--open"><use href="#i-menu"/></svg>
-        <svg class="ico ico--close"><use href="#i-close"/></svg>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="nav-toggle__label" aria-hidden="true">Menu</span>
       </button>
     </div>
   </div>
@@ -97,6 +97,10 @@
 
   <!-- HERO -->
   <section class="hero">
+    <picture class="hero__bg">
+      <source media="(max-width: 63.99rem)" srcset="assets/hero-s.webp">
+      <img src="assets/hero.webp" alt="" width="2000" height="1000" fetchpriority="high" decoding="async">
+    </picture>
     <div class="wrap hero__grid">
       <div class="hero__copy">
         <p class="status" id="status" aria-live="polite"><span class="status__dot"></span><span id="statusText">Mon–Fri 8am–6pm</span></p>
@@ -157,27 +161,57 @@
       </header>
 
       <div class="bento">
-        <article class="card card--feature reveal">
-          <svg class="ico ico--xl"><use href="#i-shield"/></svg>
-          <h3>MOT testing</h3>
-          <p class="price-tag">£40 <small>+ VAT · while you wait</small></p>
-          <p>Fast, clear and honest. If your vehicle fails, we quote for the repairs and re-test it free when the work is done with us.</p>
-          <a class="link" href="#mot">What we check <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <article class="card card--feature card--photo reveal">
+          <div class="card__top">
+            <div class="card__media"><img src="assets/svc-mot.webp" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+            <span class="card__badge" aria-hidden="true"><svg class="ico"><use href="#i-shield"/></svg></span>
+          </div>
+          <div class="card__body">
+            <h3>MOT testing</h3>
+            <p class="price-tag">£40 <small>+ VAT · while you wait</small></p>
+            <p>Fast, clear and honest. If your vehicle fails, we quote for the repairs and re-test it free when the work is done with us.</p>
+            <a class="link" href="#mot">What we check <svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
         </article>
 
-        <article class="card reveal">
-          <svg class="ico ico--xl"><use href="#i-wrench"/></svg>
-          <h3>Servicing</h3>
-          <p class="price-tag">from £79 <small>+ parts + VAT</small></p>
-          <p>Bronze, Silver and Gold services to suit your mileage and your car.</p>
-          <a class="link" href="#prices">See service levels <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <article class="card card--photo reveal">
+          <div class="card__top">
+            <div class="card__media"><img src="assets/svc-servicing.webp" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+            <span class="card__badge" aria-hidden="true"><svg class="ico"><use href="#i-wrench"/></svg></span>
+          </div>
+          <div class="card__body">
+            <h3>Servicing</h3>
+            <p class="price-tag">from £79 <small>+ parts + VAT</small></p>
+            <p>Bronze, Silver and Gold services to suit your mileage and your car.</p>
+            <a class="link" href="#prices">See service levels <svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
         </article>
 
-        <article class="card reveal">
-          <svg class="ico ico--xl"><use href="#i-gauge"/></svg>
-          <h3>Repairs</h3>
-          <p class="price-tag">Call for a quote</p>
-          <p>Wheel bearings, suspension, gearbox repairs, head gaskets, track rod ends, steering racks, brake discs and pads, clutches and more.</p>
+        <article class="card card--photo reveal">
+          <div class="card__top">
+            <div class="card__media"><img src="assets/svc-repairs.webp" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+            <span class="card__badge" aria-hidden="true"><svg class="ico"><use href="#i-gauge"/></svg></span>
+          </div>
+          <div class="card__body">
+            <h3>Repairs</h3>
+            <p class="price-tag">Call for a quote</p>
+            <p>Wheel bearings, suspension, gearbox repairs, head gaskets, track rod ends, steering racks, brake discs and pads, clutches and more.</p>
+          </div>
+        </article>
+
+        <article class="card card--photo reveal">
+          <div class="card__top">
+            <div class="card__media"><img src="assets/svc-tyres.webp" alt="" width="800" height="500" loading="lazy" decoding="async"></div>
+            <span class="card__badge" aria-hidden="true"><svg class="ico"><use href="#i-tyre"/></svg></span>
+          </div>
+          <div class="card__body">
+            <h3>Tyres</h3>
+            <p class="price-tag">Call for a quote</p>
+            <p>Independent tyre dealer and fitter. Fitted and balanced in-house with top-of-the-range equipment.</p>
+            <ul class="brands" aria-label="Tyre brands we stock">
+              <li>Avon</li><li>Dunlop</li><li>Goodyear</li><li>Bridgestone</li><li>Continental</li><li>Michelin</li><li>Pirelli</li><li>Firestone</li><li>Uniroyal</li>
+            </ul>
+          </div>
         </article>
 
         <article class="card reveal">
@@ -188,23 +222,13 @@
         </article>
 
         <article class="card reveal">
-          <svg class="ico ico--xl"><use href="#i-tyre"/></svg>
-          <h3>Tyres</h3>
-          <p class="price-tag">Call for a quote</p>
-          <p>Independent tyre dealer and fitter. Fitted and balanced in-house with top-of-the-range equipment.</p>
-          <ul class="brands" aria-label="Tyre brands we stock">
-            <li>Avon</li><li>Dunlop</li><li>Goodyear</li><li>Bridgestone</li><li>Continental</li><li>Michelin</li><li>Pirelli</li><li>Firestone</li><li>Uniroyal</li>
-          </ul>
-        </article>
-
-        <article class="card reveal">
           <svg class="ico ico--xl"><use href="#i-snow"/></svg>
           <h3>Air conditioning</h3>
           <p class="price-tag">£45 <small>+ VAT · service &amp; re-gas</small></p>
           <p>We drain and recharge the system and check hoses, filters, belts, connections, compressor and condenser.</p>
         </article>
 
-        <article class="card reveal">
+        <article class="card card--wide reveal">
           <svg class="ico ico--xl"><use href="#i-truck"/></svg>
           <h3>Fleet &amp; company accounts</h3>
           <p class="price-tag">Free to open</p>
@@ -212,19 +236,22 @@
           <a class="link" href="#accounts">Find out more <svg class="ico"><use href="#i-arrow"/></svg></a>
         </article>
 
-        <article class="card card--dark reveal" id="remap">
-          <svg class="ico ico--xl"><use href="#i-bolt"/></svg>
-          <h3>Performance remapping</h3>
-          <p class="price-tag">Get in tune</p>
-          <p>Specialists in engine management tuning, backed by Elite Re-Maps. For road cars through to light commercials.</p>
-          <ul class="ticks ticks--small">
-            <li><svg class="ico"><use href="#i-check"/></svg>Increased efficiency</li>
-            <li><svg class="ico"><use href="#i-check"/></svg>Boosted power output</li>
-            <li><svg class="ico"><use href="#i-check"/></svg>Extra torque</li>
-            <li><svg class="ico"><use href="#i-check"/></svg>Improved fuel economy</li>
-            <li><svg class="ico"><use href="#i-check"/></svg>Enhanced drivability</li>
-          </ul>
-          <p class="small">Vehicle not listed? Call <a href="tel:01908611100">01908 611100</a>.</p>
+        <article class="card card--dark card--photo card--remap reveal" id="remap">
+          <div class="card__media"><img src="assets/remap.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"></div>
+          <div class="card__body">
+            <svg class="ico ico--xl"><use href="#i-bolt"/></svg>
+            <h3>Performance remapping</h3>
+            <p class="price-tag">Get in tune</p>
+            <p>Specialists in engine management tuning, backed by Elite Re-Maps. For road cars through to light commercials.</p>
+            <ul class="ticks ticks--small">
+              <li><svg class="ico"><use href="#i-check"/></svg>Increased efficiency</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Boosted power output</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Extra torque</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Improved fuel economy</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Enhanced drivability</li>
+            </ul>
+            <p class="small">Vehicle not listed? Call <a href="tel:01908611100">01908 611100</a>.</p>
+          </div>
         </article>
       </div>
 
@@ -328,7 +355,7 @@
       <header class="section__head reveal">
         <p class="eyebrow">MOT test</p>
         <h2>What's checked in an MOT?</h2>
-        <p>The MOT confirms that, at the time of the test and without dismantling, your vehicle met the minimum road safety and environmental standards. Search the checklist below.</p>
+        <p>The MOT confirms that, at the time of the test and without dismantling, your vehicle met the minimum road safety and environmental standards. Tap a number on the car, or search for a part.</p>
       </header>
 
       <div class="mot__tools reveal">
@@ -339,28 +366,121 @@
         <p class="mot__count" id="motCount" aria-live="polite"></p>
       </div>
 
-      <div class="checklist reveal" id="checklist">
-        <details><summary>Body, structure &amp; general items</summary><p>Free from excessive corrosion or damage in specific areas, with no sharp edges likely to cause injury. Towbars for security and condition, correct operation of the 13-pin electrical socket, speedometer condition and operation, and engine mountings.</p></details>
-        <details><summary>Fuel system</summary><p>No leaks. Security and condition of pipes and hoses. The fuel cap fastens and seals securely, so please have the key available.</p></details>
-        <details><summary>Exhaust emissions</summary><p>The vehicle meets the exhaust emission requirements for its age and fuel type.</p></details>
-        <details><summary>Exhaust system</summary><p>Secure and complete, without serious leaks and not too noisy. Catalyst present where one was fitted as standard.</p></details>
-        <details><summary>Seat belts</summary><p>All fitted belts are checked for type, condition, operation and security. All mandatory seat belts must be in place.</p></details>
-        <details><summary>Seats</summary><p>Driver's seat for adjustment. All seats for security, and seat backs must be able to be secured upright.</p></details>
-        <details><summary>Doors</summary><p>Latch securely when closed. Front doors open from inside and outside, rear doors open from outside. Hinges and catches checked for security and condition.</p></details>
-        <details><summary>Mirrors</summary><p>Minimum number required, plus condition and security.</p></details>
-        <details><summary>Load security</summary><p>Boot or tailgate can be secured in the closed position.</p></details>
-        <details><summary>Brakes</summary><p>Condition (including inappropriate repairs or modifications), operation and performance in an efficiency test. ABS and electronic stability control where fitted, plus warning lights for ABS, ESC, electronic parking brake and brake fluid. Removing wheels and trims is not part of the test.</p></details>
-        <details><summary>Tyres &amp; wheels</summary><p>Condition, security, tyre size and type, and tread depth. Spare tyres aren't inspected. Vehicles first used on or after 1 January 2012 also get a tyre pressure monitoring light check.</p></details>
-        <details><summary>Registration plates</summary><p>Condition, security, colour, and characters correctly formed and spaced.</p></details>
-        <details><summary>Lights</summary><p>Condition and operation, including HID and LED headlamps for cleaning, self-levelling and security. Headlamp aim and main beam warning light.</p></details>
-        <details><summary>Bonnet</summary><p>Securely latches in the closed position.</p></details>
-        <details><summary>Wipers &amp; washers</summary><p>Operate to give the driver a clear view ahead.</p></details>
-        <details><summary>Windscreen</summary><p>Condition, and the driver's view of the road.</p></details>
-        <details><summary>Horn</summary><p>Correct operation and of a suitable type.</p></details>
-        <details><summary>Steering &amp; suspension</summary><p>Condition, steering oil level and operation, with a check for inappropriate repairs or modification, including corrosion to power steering pipes or hoses. Steering lock operation and electronic power steering warning light.</p></details>
-        <details><summary>Vehicle identification number</summary><p>Present on vehicles first used on or after 1 August 1980, with no more than one different VIN displayed (except multistage build vehicles).</p></details>
-        <details><summary>Electrical</summary><p>Visible electrical wiring and battery.</p></details>
+      <div class="walk reveal" id="walk">
+        <div class="walk__stage" id="walkStage">
+          <div class="walk__car">
+            <div class="walk__frame">
+              <svg class="walk__svg" viewBox="0 0 800 370" aria-hidden="true" focusable="false">
+                <defs>
+                  <pattern id="mgrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".05"/></pattern>
+                </defs>
+                <rect width="800" height="370" fill="url(#mgrid)"/>
+                <ellipse class="car-shadow" cx="400" cy="341" rx="330" ry="8"/>
+                <path class="car-ground" d="M30 336H770"/>
+                <path class="car-body" d="M92 300V218C92 200 100 192 118 188L190 178C210 174 224 164 238 150C262 120 298 96 350 92L468 90C520 90 558 114 596 150C608 162 624 170 646 174L706 186C722 190 730 202 730 218V300H660A62 62 0 1 0 540 300H260A62 62 0 1 0 140 300Z"/>
+                <path class="part" data-zone="seats" d="M282 152H532V296H282Z"/>
+                <path class="car-line" d="M412 104V296M436 180H466M312 180H342"/>
+                <path class="part" data-zone="seats" d="M408 104L352 105C306 106 280 124 262 150H408Z"/>
+                <path class="part" data-zone="view" d="M416 104L468 103C508 104 540 124 570 150H416Z"/>
+                <path class="part" data-zone="view" d="M588 158L612 156L616 168L592 172Z"/>
+                <path class="part" data-zone="lights" d="M692 190L724 196L728 216L700 212Z"/>
+                <path class="part" data-zone="lights" d="M94 198L112 195L113 222L94 224Z"/>
+                <path class="part edge" data-zone="engine" d="M606 158C618 166 630 171 648 175L706 186"/>
+                <path class="part" data-zone="engine" d="M92 292H72V304H92Z"/>
+                <circle class="part" data-zone="engine" cx="238" cy="196" r="7"/>
+                <path class="part edge" data-zone="body" d="M92 296V218C92 200 100 192 118 188L190 178"/>
+                <path class="part edge" data-zone="body" d="M270 296H530"/>
+                <g class="wheel" data-zone="wheels">
+                  <g transform="translate(200 286)"><circle r="50"/><circle class="rim" r="31"/><circle r="8"/><path d="M0-31V-8M0 8V31M-31 0H-8M8 0H31M-22-22L-6-6M6 6L22 22M22-22L6-6M-6 6L-22 22"/></g>
+                  <g transform="translate(600 286)"><circle r="50"/><circle class="rim" r="31"/><circle r="8"/><path d="M0-31V-8M0 8V31M-31 0H-8M8 0H31M-22-22L-6-6M6 6L22 22M22-22L6-6M-6 6L-22 22"/></g>
+                </g>
+              </svg>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="lights" title="Lights &amp; electrics" style="--x:89%;--y:56%">1</button>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="wheels" title="Wheels, steering &amp; brakes" style="--x:75%;--y:77%">2</button>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="view" title="View of the road" style="--x:65%;--y:35%">3</button>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="seats" title="Seats &amp; safety" style="--x:42.5%;--y:35%">4</button>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="engine" title="Engine, fuel &amp; exhaust" style="--x:79%;--y:43%">5</button>
+              <button class="hot" type="button" tabindex="-1" aria-hidden="true" data-zone="body" title="Body &amp; identification" style="--x:16.5%;--y:58%">6</button>
+            </div>
+          </div>
+          <p class="walk__hint">Tap a number on the car to see what we check.</p>
+        </div>
+
+        <div class="walk__side">
+          <div class="zonetabs" role="tablist" aria-label="Areas checked in an MOT">
+            <button type="button" role="tab" id="zt-lights" aria-controls="zp-lights" aria-selected="true" data-zone="lights"><b>1</b>Lights &amp; electrics</button>
+            <button type="button" role="tab" id="zt-wheels" aria-controls="zp-wheels" aria-selected="false" data-zone="wheels"><b>2</b>Wheels, steering &amp; brakes</button>
+            <button type="button" role="tab" id="zt-view" aria-controls="zp-view" aria-selected="false" data-zone="view"><b>3</b>View of the road</button>
+            <button type="button" role="tab" id="zt-seats" aria-controls="zp-seats" aria-selected="false" data-zone="seats"><b>4</b>Seats &amp; safety</button>
+            <button type="button" role="tab" id="zt-engine" aria-controls="zp-engine" aria-selected="false" data-zone="engine"><b>5</b>Engine, fuel &amp; exhaust</button>
+            <button type="button" role="tab" id="zt-body" aria-controls="zp-body" aria-selected="false" data-zone="body"><b>6</b>Body &amp; identification</button>
+          </div>
+
+          <div class="zonepanel" id="zp-lights" role="tabpanel" aria-labelledby="zt-lights" data-num="01">
+            <h3>Lights &amp; electrics</h3>
+            <p class="zcount">3 checks</p>
+            <dl class="checks">
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Lights</dt><dd>Condition and operation, including HID and LED headlamps for cleaning, self-levelling and security. Headlamp aim and main beam warning light.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Electrical</dt><dd>Visible electrical wiring and battery.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Horn</dt><dd>Correct operation and of a suitable type.</dd></div>
+            </dl>
+          </div>
+
+          <div class="zonepanel" id="zp-wheels" role="tabpanel" aria-labelledby="zt-wheels" data-num="02">
+            <h3>Wheels, steering &amp; brakes</h3>
+            <p class="zcount">3 checks</p>
+            <dl class="checks">
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Brakes</dt><dd>Condition (including inappropriate repairs or modifications), operation and performance in an efficiency test. ABS and electronic stability control where fitted, plus warning lights for ABS, ESC, electronic parking brake and brake fluid. Removing wheels and trims is not part of the test.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Tyres &amp; wheels</dt><dd>Condition, security, tyre size and type, and tread depth. Spare tyres aren't inspected. Vehicles first used on or after 1 January 2012 also get a tyre pressure monitoring light check.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Steering &amp; suspension</dt><dd>Condition, steering oil level and operation, with a check for inappropriate repairs or modification, including corrosion to power steering pipes or hoses. Steering lock operation and electronic power steering warning light.</dd></div>
+            </dl>
+          </div>
+
+          <div class="zonepanel" id="zp-view" role="tabpanel" aria-labelledby="zt-view" data-num="03">
+            <h3>View of the road</h3>
+            <p class="zcount">3 checks</p>
+            <dl class="checks">
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Windscreen</dt><dd>Condition, and the driver's view of the road.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Wipers &amp; washers</dt><dd>Operate to give the driver a clear view ahead.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Mirrors</dt><dd>Minimum number required, plus condition and security.</dd></div>
+            </dl>
+          </div>
+
+          <div class="zonepanel" id="zp-seats" role="tabpanel" aria-labelledby="zt-seats" data-num="04">
+            <h3>Seats &amp; safety</h3>
+            <p class="zcount">3 checks</p>
+            <dl class="checks">
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Seat belts</dt><dd>All fitted belts are checked for type, condition, operation and security. All mandatory seat belts must be in place.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Seats</dt><dd>Driver's seat for adjustment. All seats for security, and seat backs must be able to be secured upright.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Doors</dt><dd>Latch securely when closed. Front doors open from inside and outside, rear doors open from outside. Hinges and catches checked for security and condition.</dd></div>
+            </dl>
+          </div>
+
+          <div class="zonepanel" id="zp-engine" role="tabpanel" aria-labelledby="zt-engine" data-num="05">
+            <h3>Engine, fuel &amp; exhaust</h3>
+            <p class="zcount">4 checks</p>
+            <dl class="checks">
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Exhaust system</dt><dd>Secure and complete, without serious leaks and not too noisy. Catalyst present where one was fitted as standard.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Exhaust emissions</dt><dd>The vehicle meets the exhaust emission requirements for its age and fuel type.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Fuel system</dt><dd>No leaks. Security and condition of pipes and hoses. The fuel cap fastens and seals securely, so please have the key available.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Bonnet</dt><dd>Securely latches in the closed position.</dd></div>
+            </dl>
+          </div>
+
+          <div class="zonepanel" id="zp-body" role="tabpanel" aria-labelledby="zt-body" data-num="06">
+            <h3>Body &amp; identification</h3>
+            <p class="zcount">4 checks</p>
+            <dl class="checks">
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Body, structure &amp; general items</dt><dd>Free from excessive corrosion or damage in specific areas, with no sharp edges likely to cause injury. Towbars for security and condition, correct operation of the 13-pin electrical socket, speedometer condition and operation, and engine mountings.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Load security</dt><dd>Boot or tailgate can be secured in the closed position.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Registration plates</dt><dd>Condition, security, colour, and characters correctly formed and spaced.</dd></div>
+              <div><dt><svg class="ico"><use href="#i-check"/></svg>Vehicle identification number</dt><dd>Present on vehicles first used on or after 1 August 1980, with no more than one different VIN displayed (except multistage build vehicles).</dd></div>
+            </dl>
+          </div>
+        </div>
       </div>
+
+      <div class="mot__results" id="motResults" hidden></div>
       <p class="empty" id="motEmpty" hidden>No matches. Try another word, or call us on <a href="tel:01908611100">01908 611100</a>.</p>
 
       <div class="notice reveal">

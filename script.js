@@ -11,6 +11,7 @@
     nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open);
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    $('.nav-toggle__label', toggle).textContent = open ? 'Close' : 'Menu';
     document.body.style.overflow = open ? 'hidden' : '';
   }
   toggle.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
@@ -114,21 +115,55 @@
   selectPlan('silver');
   renderPrices();
 
-  /* MOT checklist search */
-  var items = $$('#checklist details'), search = $('#motSearch'), count = $('#motCount'), empty = $('#motEmpty');
-  function filterChecklist() {
-    var q = search.value.trim().toLowerCase(), shown = 0;
-    items.forEach(function (d) {
-      var hit = !q || d.textContent.toLowerCase().indexOf(q) !== -1;
-      d.hidden = !hit;
-      if (hit) shown++;
-      if (q && hit) d.open = true; else if (!q) d.open = false;
+  /* MOT walk-around */
+  var walk = $('#walk'), stage = $('#walkStage'), zoneTabs = $$('.zonetabs [role="tab"]'), zoneParts = $$('[data-zone]', stage);
+  function selectZone(id, focus) {
+    zoneTabs.forEach(function (t) {
+      var on = t.dataset.zone === id;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      $('#' + t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
     });
-    count.textContent = q ? shown + ' of ' + items.length + ' items match' : items.length + ' checks in a standard MOT';
-    empty.hidden = shown !== 0;
+    zoneParts.forEach(function (p) { p.classList.toggle('is-on', p.dataset.zone === id); });
   }
-  search.addEventListener('input', filterChecklist);
-  filterChecklist();
+  zoneTabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { selectZone(t.dataset.zone); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+      if (d) { e.preventDefault(); selectZone(zoneTabs[(i + d + zoneTabs.length) % zoneTabs.length].dataset.zone, true); }
+    });
+  });
+  $$('.hot', stage).forEach(function (h) { h.addEventListener('click', function () { selectZone(h.dataset.zone); }); });
+  selectZone('lights');
+
+  /* MOT search across all checks */
+  var checks = $$('.checks > div'), search = $('#motSearch'), count = $('#motCount'), results = $('#motResults'), empty = $('#motEmpty');
+  function filterChecks() {
+    var q = search.value.trim().toLowerCase(), hits = 0;
+    results.textContent = '';
+    if (q) {
+      checks.forEach(function (c) {
+        var title = c.querySelector('dt').textContent, text = c.querySelector('dd').textContent;
+        if ((title + ' ' + text).toLowerCase().indexOf(q) === -1) return;
+        hits++;
+        var r = document.createElement('article'), z = document.createElement('p'), h = document.createElement('h4'), p = document.createElement('p');
+        r.className = 'res';
+        z.className = 'res__zone';
+        z.textContent = c.closest('.zonepanel').querySelector('h3').textContent;
+        h.textContent = title;
+        p.textContent = text;
+        r.appendChild(z); r.appendChild(h); r.appendChild(p);
+        results.appendChild(r);
+      });
+    }
+    walk.hidden = !!q;
+    results.hidden = !q || hits === 0;
+    empty.hidden = !q || hits !== 0;
+    count.textContent = q ? hits + ' of ' + checks.length + ' checks match' : checks.length + ' checks in a standard MOT';
+  }
+  search.addEventListener('input', filterChecks);
+  filterChecks();
 
   /* Contact form -> mailto */
   var form = $('#contactForm'), note = $('#formNote');
